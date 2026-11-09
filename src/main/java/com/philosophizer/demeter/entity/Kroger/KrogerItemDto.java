@@ -1,4 +1,4 @@
-package com.philosophizer.demeter.model;
+package com.philosophizer.demeter.entity.Kroger;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import software.amazon.awssdk.enhanced.dynamodb.mapper.annotations.DynamoDbBean;

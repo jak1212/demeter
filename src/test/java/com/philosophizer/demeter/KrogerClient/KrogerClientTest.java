@@ -1,7 +1,7 @@
 package com.philosophizer.demeter.KrogerClient;
 
 import com.philosophizer.demeter.kroger.KrogerClient;
-import com.philosophizer.demeter.model.KrogerItemDto;
+import com.philosophizer.demeter.entity.Kroger.KrogerItemDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

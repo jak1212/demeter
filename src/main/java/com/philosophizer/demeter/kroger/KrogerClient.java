@@ -1,8 +1,9 @@
 package com.philosophizer.demeter.kroger;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.philosophizer.demeter.model.KrogerItemDto;
+import com.philosophizer.demeter.entity.Kroger.ProductSearchResponse;
+import com.philosophizer.demeter.entity.Kroger.ScoredProduct;
+import com.philosophizer.demeter.entity.Kroger.TokenResponse;
+import com.philosophizer.demeter.entity.Kroger.KrogerItemDto;
 import com.philosophizer.demeter.utils.SearchTermNormalizer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -12,7 +13,6 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestClient;
 
-import java.net.URLEncoder;
 import java.time.Duration;
 import java.time.Instant;
 import java.util.Comparator;
@@ -47,16 +47,10 @@ public class KrogerClient {
     private static final double MIN_COVERAGE = 0.75;
     @Autowired
     public SearchTermNormalizer normalizer;
-    public record ScoredProduct(KrogerItemDto product, double coverage, int extraTokens) {}
 
-    @JsonIgnoreProperties(ignoreUnknown = true)
-    private record TokenResponse(
-            @JsonProperty("access_token") String accessToken,
-            @JsonProperty("expires_in") long expiresIn) {
-    }
 
-    @JsonIgnoreProperties(ignoreUnknown = true)
-    private record ProductSearchResponse(List<KrogerItemDto> data) {}
+
+
 
     public KrogerClient() {
     }
